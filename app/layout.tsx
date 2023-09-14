@@ -6,6 +6,8 @@ import { ptBR } from "@clerk/localizations";
 
 import { Inter } from "next/font/google";
 
+import { ModalProvider } from "@/providers/modal-provider";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +25,10 @@ export default function RootLayout({
   return (
     <ClerkProvider localization={ptBR}>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <ModalProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
