@@ -21,7 +21,9 @@ import { useStoreModal } from "@/hooks/use-store-modal";
 import * as z from "zod";
 
 const formSchema = z.object({
-  name: z.string().min(3),
+  name: z.string().min(3, {
+    message: "Campo obrigátorio",
+  }),
 });
 
 export const StoreModal = () => {
