@@ -7,6 +7,7 @@ import { ptBR } from "@clerk/localizations";
 import { Inter } from "next/font/google";
 
 import { ModalProvider } from "@/providers/modal-provider";
+import ToasterProvider from "@/providers/toast-provider";
 
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
     <ClerkProvider localization={ptBR}>
       <html lang="en">
         <body className={inter.className}>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>
