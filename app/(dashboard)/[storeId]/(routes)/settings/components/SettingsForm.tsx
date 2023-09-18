@@ -3,9 +3,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { useParams, useRouter } from "next/navigation";
+
 import * as z from "zod";
 
 import { Store } from "@prisma/client";
+
+import toast from "react-hot-toast";
+
+import axios from "axios";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -41,13 +47,28 @@ export const SettingsForm = ({ initialData }: SettingsFormProps) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const params = useParams();
+  const router = useRouter();
+
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData,
   });
 
   const onSubmit = async (data: SettingsFormValues) => {
-    console.log(data);
+    try {
+      setLoading(true);
+
+      await axios.patch(`/api/stores/${params.storeId}`, data);
+
+      router.refresh();
+      toast.success("Registro atualizado com sucesso!");
+    } catch (error) {
+      console.log(error);
+      toast.error("Houve um erro ao atualizar!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
