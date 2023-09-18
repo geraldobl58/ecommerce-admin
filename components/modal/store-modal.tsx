@@ -52,6 +52,8 @@ export const StoreModal = () => {
       if (res) {
         toast.success("Loja criada com sucesso!");
       }
+
+      window.location.assign(`/${res.data.id}/`);
     } catch (error) {
       console.log(error);
       toast.error("Houve um erro ao criar a loja!");
