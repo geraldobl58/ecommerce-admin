@@ -24,8 +24,8 @@ export const BillboardClient = ({ data }: BillboardClientProps) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Categorias (${data.length})`}
-          description="Gerencie outdoors para sua loja"
+          title={`Banner (${data.length})`}
+          description="Gerencie seus banners."
         />
         <Button
           onClick={() => router.push(`/${params.storeId}/billboards/new`)}
@@ -36,7 +36,7 @@ export const BillboardClient = ({ data }: BillboardClientProps) => {
       </div>
       <Separator />
       <DataTable searchKey="label" columns={columns} data={data} />
-      <Heading title="API" description="Chamada de API para categorias" />
+      <Heading title="API" description="Chamada de API para banner" />
       <Separator />
       <ApiList entityName="billboards" entityIdName="billboardId" />
     </>

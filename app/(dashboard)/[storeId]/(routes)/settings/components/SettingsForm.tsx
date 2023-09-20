@@ -84,7 +84,7 @@ export const SettingsForm = ({ initialData }: SettingsFormProps) => {
       router.push("/");
       toast.success("Loja excluida com sucesso!");
     } catch (error) {
-      toast.error("Certifique-se de remover todos os produtos e categorias.");
+      toast.error("Certifique-se de remover todos os produtos e banners.");
     } finally {
       setLoading(false);
       setOpen(false);

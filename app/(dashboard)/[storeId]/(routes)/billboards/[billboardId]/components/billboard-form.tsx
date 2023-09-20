@@ -103,7 +103,7 @@ export const BillboardForm = ({ initialData }: BillboardFormProps) => {
       router.push(`/${params.storeId}/billboards`);
       toast.success("Registro excluido com sucesso!");
     } catch (error) {
-      toast.error("Certifique-se de remover todas as categorias.");
+      toast.error("Certifique-se de remover todos os banners.");
     } finally {
       setLoading(false);
       setOpen(false);
