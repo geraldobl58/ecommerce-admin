@@ -7,8 +7,15 @@ import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
+import { DataTable } from "@/components/ui/data-table";
 
-export const BillboardClient = () => {
+import { BillboardColumn, columns } from "./columns";
+
+interface BillboardClientProps {
+  data: BillboardColumn[];
+}
+
+export const BillboardClient = ({ data }: BillboardClientProps) => {
   const router = useRouter();
   const params = useParams();
 
@@ -16,7 +23,7 @@ export const BillboardClient = () => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title="Outdoors(0)"
+          title={`Categorias (${data.length})`}
           description="Gerencie outdoors para sua loja"
         />
         <Button
@@ -27,6 +34,7 @@ export const BillboardClient = () => {
         </Button>
       </div>
       <Separator />
+      <DataTable searchKey="label" columns={columns} data={data} />
     </>
   );
 };
