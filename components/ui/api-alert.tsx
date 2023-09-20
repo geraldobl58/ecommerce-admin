@@ -39,7 +39,9 @@ export const ApiAlert = ({
       <Server className="h-4 w-4" />
       <AlertTitle>
         {title}
-        <Badge variant={variantMap[variant]}>{textMap[variant]}</Badge>
+        <Badge variant={variantMap[variant]} className="ml-2">
+          {textMap[variant]}
+        </Badge>
       </AlertTitle>
       <AlertDescription className="mt-4 flex items-center justify-between">
         <code
