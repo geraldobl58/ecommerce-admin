@@ -68,7 +68,7 @@ export const CategoryForm = ({
   const title = initialData ? "Editar categoria" : "Nova categoria";
   const description = initialData ? "Editar categoria" : "Adicionar categoria";
   const toastMessage = initialData
-    ? "Categoria autualizada com sucesso!"
+    ? "Categoria atualizada com sucesso!"
     : "Categoria adicionada com sucesso!";
   const action = initialData ? "Editar" : "Salvar";
 

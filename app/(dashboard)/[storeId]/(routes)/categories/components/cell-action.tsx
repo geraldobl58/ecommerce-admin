@@ -41,7 +41,7 @@ export const CellAction = ({ data }: CellActionProps) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/billboards/${data.id}`);
+      await axios.delete(`/api/${params.storeId}/categories/${data.id}`);
       router.refresh();
       toast.success("Registro excluido com sucesso!");
     } catch (error) {
@@ -78,7 +78,7 @@ export const CellAction = ({ data }: CellActionProps) => {
           <DropdownMenuItem
             className="cursor-pointer"
             onClick={() => {
-              router.push(`/${params.storeId}/billboards/${data.id}`);
+              router.push(`/${params.storeId}/categories/${data.id}`);
             }}
           >
             <Edit className="mr-2 h-4 w-4" />
