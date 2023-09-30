@@ -24,10 +24,23 @@ export const columns: ColumnDef<ProductColumn>[] = [
   {
     accessorKey: "isArchived",
     header: "Arquivado",
+    cell: ({ row }) => {
+      console.log(row);
+      return (
+        <div className="flex items-center gap-x-2">
+          {row.original.isArchived ? "Ativo" : "Inativo"}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "isFeatured",
     header: "Destaque",
+    cell: ({ row }) => (
+      <div className="flex items-center gap-x-2">
+        {row.original.isFeatured ? "Ativo" : "Inativo"}
+      </div>
+    ),
   },
   {
     accessorKey: "price",
@@ -53,14 +66,6 @@ export const columns: ColumnDef<ProductColumn>[] = [
         />
       </div>
     ),
-  },
-  {
-    accessorKey: "isFeatured",
-    header: "Destaque",
-  },
-  {
-    accessorKey: "createdAt",
-    header: "Data",
   },
   {
     id: "actions",
