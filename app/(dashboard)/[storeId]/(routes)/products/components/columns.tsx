@@ -24,14 +24,11 @@ export const columns: ColumnDef<ProductColumn>[] = [
   {
     accessorKey: "isArchived",
     header: "Arquivado",
-    cell: ({ row }) => {
-      console.log(row);
-      return (
-        <div className="flex items-center gap-x-2">
-          {row.original.isArchived ? "Ativo" : "Inativo"}
-        </div>
-      );
-    },
+    cell: ({ row }) => (
+      <div className="flex items-center gap-x-2">
+        {row.original.isArchived ? "Ativo" : "Inativo"}
+      </div>
+    ),
   },
   {
     accessorKey: "isFeatured",
